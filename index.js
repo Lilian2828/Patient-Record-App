@@ -3,6 +3,7 @@ var express = require ('express')
 var ejs = require('ejs')
 var bodyParser= require ('body-parser')
 var session = require ('express-session');
+var shopData = {shopName: "Bertie's Books Wholesale Shop"};
 const mysql = require('mysql');
 
 // Create the express application object
