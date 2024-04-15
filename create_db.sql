@@ -1,15 +1,45 @@
-CREATE DATABASE myBookshop;
-USE myBookshop;
-CREATE TABLE books (id INT AUTO_INCREMENT,name VARCHAR(50),price DECIMAL(5, 2) unsigned,PRIMARY KEY(id));
-INSERT INTO books (name, price)VALUES('database book', 40.25),('Node.js book', 25.00), ('Express book', 31.99) ;
-CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
-GRANT ALL PRIVILEGES ON myBookshop.* TO 'appuser'@'localhost';
+CREATE DATABASE IF NOT EXISTS patientrecord;
 
-CREATE TABLE users (
+USE patientrecord;
+CREATE TABLE IF NOT EXISTS patients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    dob DATE NOT NULL
+);
+
+-- creating table for diseases
+CREATE TABLE IF NOT EXISTS diseases (
+    disease_id INT AUTO_INCREMENT PRIMARY KEY,
+    disease_name VARCHAR(255) NOT NULL
+);
+
+-- creating table for medical_info
+CREATE TABLE IF NOT EXISTS medical_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    disease_id INT NOT NULL,
+    medical_info TEXT,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (disease_id) REFERENCES diseases(disease_id)
+);
+
+
+CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
+GRANT ALL PRIVILEGES ON patientrecord.* TO 'appuser'@'localhost';
+FLUSH PRIVILEGES;
+
+-- create table for users
+CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     hashedPassword VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_details (
+    user_detail_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

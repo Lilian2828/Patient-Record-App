@@ -1,11 +1,43 @@
 <!doctype html>
 <html>
   <head>
-    <title>About <%=shopName%></title>
+    <title>About <%=appName%></title>
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>About <%=shopName%></h1>
-    <p>We sell all sorts of books and nothing else!</p>
+    <h1><%=appName%></h1>
+    <div class="navbar">
+      <a href="list">List patients</a>
+      <a href="search">Search for patient</a>
+      <a href="addpatient">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about" class="active">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
+    <h2>About <%=appName%></h2>
+    <p>Information about app</p>
+    <div class="container">
+      <h1>About Our App</h1>
+      <p>Welcome to <strong><%=appName%></strong>, a cutting-edge medical application designed to revolutionize the way healthcare professionals manage patient data. At <strong><%=appName%></strong>, we're dedicated to providing an intuitive and secure platform for doctors and NHS staff to streamline their workflow and enhance patient care.</p>
+      
+      <h2>Our Mission</h2>
+      <p>Our mission is to empower medical professionals with tools that simplify the process of managing patient records, enabling them to make informed decisions quickly and effectively. With <strong><%=appName%></strong>, doctors can access vital patient information anytime, anywhere, facilitating better healthcare outcomes.</p>
+      
+      <h2>Key Features</h2>
+      <ul>
+          <li><strong>Efficient Data Management:</strong> Easily add, save, and share patient records, ensuring comprehensive and up-to-date medical information is readily available.</li>
+          <li><strong>Secure Storage:</strong> We prioritize data security, employing robust encryption and authentication measures to safeguard sensitive patient data.</li>
+          <li><strong>Intuitive Interface:</strong> Designed with user experience in mind, our platform offers a user-friendly interface that minimizes learning curves and maximizes productivity.</li>
+          <li><strong>Advanced Search Functionality:</strong> Quickly locate patient records with powerful search capabilities, allowing medical professionals to retrieve relevant information with ease.</li>
+      </ul>
+      
+      <h2>Our Commitment</h2>
+      <p>At <strong><%=appName%></strong>, we're committed to continuous improvement and innovation. We strive to incorporate user feedback and emerging technologies to evolve our platform and meet the evolving needs of healthcare professionals.</p>
+      
+      <h2>Get Started Today</h2>
+      <p>Join us in revolutionizing patient care. Sign up for <strong><%=appName%></strong> today and experience the future of medical data management.</p>
+  </div>
   </body>
 </html>

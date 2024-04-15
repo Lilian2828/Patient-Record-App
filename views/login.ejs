@@ -1,15 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Login for <%=shopName%></title>
+    <title>Login for <%=appName%></title>
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>Register for <%=shopName%></h1>
-    <form method="POST" action="/loggedin">
-        <p>Username: <input id="user" type="text" name="username" value="username" /></p>
-        <p>Password: <input id="password" type="text" name="password" value="password" /></p>
-        <input type="submit" value="Login" />
+    <h1><%=appName%></h1>
+    <div class="navbar">
+      <a href="list">List patients</a>
+      <a href="search">Search for patient</a>
+      <a href="addpatient">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login" class="active">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
+    <h2>Login for <%=appName%></h2>
+    <div class="container">
+      <h1>User Login</h1>
+      <form method="POST" action="/loggedin" class="login-form">
+          <div class="form-group">
+              <label for="user">Username:</label>
+              <input id="user" type="text" name="username" required>
+          </div>
+          <div class="form-group">
+              <label for="password">Password:</label>
+              <input id="password" type="password" name="password" required>
+          </div>
+          <div class="form-group">
+              <button type="submit">Login</button>
+          </div>
       </form>
+  </div>
   </body>
 </html>

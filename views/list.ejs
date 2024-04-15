@@ -1,15 +1,25 @@
 <!doctype html>
 <html>
   <head>
-    <title>Welcome to <%=shopName%></title>
+    <title>Welcome to <%=appName%></title>
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1><%=shopName%> Shop</h1>
-    <h2>Here are the books that we sell:</h2>
+    <h1><%=appName%></h1>
+    <div class="navbar">
+      <a href="list" class="active">List patients</a>
+      <a href="search">Search for patient</a>
+      <a href="addpatient">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
+    <h2>Patient List</h2>
     <ul>
-      <% availableBooks.forEach(function(book) { %>
-        <li><%= book.name %>, £<%=book.price%> </li>
+      <% availablePatients.forEach(function(patient) { %>
+        <li><a href="/patient/<%= patient.id %>"><%= patient.name %>, <%= patient.surname %></a></li>
       <% }) %>
     </ul>
     </body>

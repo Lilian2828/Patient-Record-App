@@ -3,7 +3,7 @@ var express = require ('express')
 var ejs = require('ejs')
 var bodyParser= require ('body-parser')
 var session = require ('express-session');
-var shopData = {shopName: "Bertie's Books Wholesale Shop"};
+var appData = {appName: "Patient Record"};
 const mysql = require('mysql');
 
 // Create the express application object
@@ -36,9 +36,9 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'appuser',
     password: 'app2027',
-    database: 'mybookshop'
+    database: 'patientrecord'
 });
-// Connect to the database
+//Connect to the database
 db.connect((err) => {
     if (err) {
         throw err;
@@ -60,10 +60,10 @@ app.set('view engine', 'ejs');
 app.engine('html', ejs.renderFile);
 
 // Define our data
-var shopData = {shopName: "Bertie's Books"}
+var appData = {appName: "Patient Record App"}
 
 // Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
-require("./routes/main")(app, shopData);
+require("./routes/main")(app, appData);
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

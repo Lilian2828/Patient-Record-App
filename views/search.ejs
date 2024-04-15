@@ -1,13 +1,24 @@
 <!doctype html>
 <html>
   <head>
-    <title>Search <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <title>Search <%=appName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />    
   </head>
   <body>
-    <h1>Search <%=shopName%></h1>
+    <h1><%=appName%></h1>
+    <div class="navbar">
+      <a href="list">List patients</a>
+      <a href="search" class="active">Search for patient</a>
+      <a href="addpatient">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
+    <h2>Search <%=appName%></h2>
     <form action="/search-result" method="GET">
-      <p>What book do you want?</p>
+      <p>Which patient are you looking for</p>
       <input id="search-box" type="text" name="keyword" value="Default">
       <input type="submit" value="Search" >
     </form>

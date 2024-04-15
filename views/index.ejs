@@ -1,18 +1,22 @@
 <!doctype html>
 <html>
   <head>
-    <title>Welcome to <%=shopName%></title>
+    <title>Welcome to <%=appName%></title>
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>Welcome to <%=shopName%></h1>
-    <p><a href="about">About <%=shopName%></a></p>
-    <p><a href="search">Search for books</a></p>
-    <p><a href="addbook">Add a new book</a></p>
-    <p><a href="list">List books</a></p>
-    <p><a href="bargainbooks">Bargain books</a></p>
-    <p><a href="register">Register with us</a></p>
-    <p><a href="login">Login with us</a></p>
-    <p><a href="/logout">Logout</a></p>
+
+    <h1>Welcome to <%=appName%></h1>
+    <p>Please select what you want to do:</p>
+    <div class="navbar">
+      <a href="list">List patients</a>
+      <a href="search">Search for patient</a>
+      <a href="addpatient">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
   </body>
 </html>

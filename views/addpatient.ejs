@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Add Patient Record</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1><%=appName%></h1>
+    <div class="navbar">
+      <a href="list">List patients</a>
+      <a href="search">Search for patient</a>
+      <a href="addpatient" class="active">Add a new patient</a>
+      <a href="register">Register new user</a>
+      <a href="login">Login with us</a>
+      <a href="map">Search on the map></a>
+      <a href="about">About <%=appName%></a>
+      <a href="/logout">Logout</a>
+    </div>
+  
+    <div class="container">
+      <h2>Add New Patient</h2>
+      <form method="POST" action="/patientadded" class="patient-form">
+          <div class="form-group">
+              <label for="nameSurname">Full Name:</label>
+              <input id="nameSurname" type="text" name="name" required>
+          </div>
+          <div class="form-group">
+              <label for="dob">Date of Birth:</label>
+              <input id="dob" type="date" name="dob" required>
+          </div>
+          <div class="form-group">
+              <label for="disease">Disease(s):</label>
+              <input id="disease" type="text" name="disease">
+          </div>
+          <div class="form-group">
+              <label for="medicalInfo">Medical Information:</label>
+              <textarea id="medicalInfo" name="medical_info" rows="6" required></textarea>
+          </div>
+          <div class="form-group">
+              <button type="submit">Add Patient</button>
+          </div>
+  </body>
+</html>
+
+

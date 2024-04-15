@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Maps API Example</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="list">List patients</a>
+    <a href="search">Search for patient</a>
+    <a href="addpatient">Add a new patient</a>
+    <a href="register">Register new user</a>
+    <a href="login">Login with us</a>
+    <a href="map" class="active">Search on the map></a>
+    <a href="about">About <%=appName%></a>
+    <a href="/logout">Logout</a>
+  </div>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      var sydney = { lat: -33.8688, lng: 151.2093 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: sydney
+      });
+      var marker = new google.maps.Marker({
+        position: sydney,
+        map: map
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>
