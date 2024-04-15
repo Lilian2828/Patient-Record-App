@@ -145,8 +145,7 @@ app.get('/addpatient', function (req, res) {
     res.render('addpatient.ejs', appData);
  });
 
- // Route Handler for Add Patient Form Submission
-app.post('/patientadded', (req, res) => {
+ app.post('/patientadded', (req, res) => {
     const { name, dob, disease, medical_info } = req.body;
   
     // Insert patient record into the patients table
@@ -186,7 +185,7 @@ app.post('/patientadded', (req, res) => {
       } else {
         // If no disease provided, insert medical information with NULL disease_id
         db.query('INSERT INTO medical_info (patient_id, medical_info) VALUES (?, ?)',
-          [patientId, medical_info],
+          [patientId, medical_info || null], // Use null if medical_info is not provided
           (err, result) => {
             if (err) {
               console.error('Error inserting medical info into medical_info table:', err);
@@ -198,7 +197,8 @@ app.post('/patientadded', (req, res) => {
           });
       }
     });
-  });
+});
+
 
 
 // app.get('/delete-patient/:id', function(req, res) {
