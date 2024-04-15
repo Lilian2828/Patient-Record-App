@@ -8,7 +8,7 @@ h1 {
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    color: cadetblue;
+    color: darkblue;
     text-align: center;
 }
 
@@ -222,4 +222,84 @@ a:link {
   button[type="submit"]:hover {
     background-color: #45a049;
   }
+
+  body {
+    background-image: url('tablet.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    font-family: Arial, sans-serif; /* Set a fallback font family */
+  }
   
+  /* h1 {
+    color: white; /* Set text color to white */
+  /* } */ */
+  
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the navbar */
+    padding: 20px;
+  }
+  
+  .navbar a {
+    color: white; /* Set text color to white */
+    margin-right: 20px; /* Add some space between navbar links */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline; 
+  }
+  
+
+  .patient-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .patient-list li {
+    margin-bottom: 15px; /* Add space between each list item */
+  }
+  
+  .patient-list li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #030303; /* Set link color */
+  }
+  
+  .patient-list li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.patient-info {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.patient-info p {
+    margin: 10px 0;
+}
+
+.patient-info p:first-child {
+    font-weight: bold;
+}

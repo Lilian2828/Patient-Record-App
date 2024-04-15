@@ -12,15 +12,14 @@
       <a href="addpatient">Add a new patient</a>
       <a href="register">Register new user</a>
       <a href="login">Login with us</a>
-      <a href="map">Search on the map></a>
       <a href="about">About <%=appName%></a>
       <a href="/logout">Logout</a>
     </div>
     <h2>Patient List</h2>
-    <ul>
+    <ul class="patient-list">
       <% availablePatients.forEach(function(patient) { %>
         <li><a href="/patient/<%= patient.id %>"><%= patient.name %>, <%= patient.surname %></a></li>
       <% }) %>
-    </ul>
+    </ul>    
     </body>
 </html>

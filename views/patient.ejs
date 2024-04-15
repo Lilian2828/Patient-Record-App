@@ -2,17 +2,17 @@
 <html>
   <head>
     <title>Welcome to Patient Record</title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
   </head>
   <body>
-    
     <h1>Patient Data</h1>
-    <p>Name: <%= patientData[0].name %></p>
-    <p>Date of Birth: <%= patientData[0].dob %></p>
-    <p>Disease: <%= patientData[0].disease_name %></p>
-    <p>Medical Info: <%= patientData[0].medical_info %></p>
-
-    </form>
+    <% if (patientData && patientData.length > 0) { %>
+      <p>Name: <%= patientData[0].name %></p>
+      <p>Date of Birth: <%= patientData[0].dob %></p>
+      <p>Disease: <%= patientData[0].disease %></p>
+      <p>Medical Info: <%= patientData[0].medical_info %></p>
+    <% } else { %>
+      <p>No patient data available.</p>
+    <% } %>
   </body>
-  <a href='./'>Home</a>
 </html>

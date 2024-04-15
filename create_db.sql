@@ -1,26 +1,14 @@
-CREATE DATABASE IF NOT EXISTS patientrecord;
-
+CREATE DATABASE patientrecord;
 USE patientrecord;
+
+-- creating table for patients
+
 CREATE TABLE IF NOT EXISTS patients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    dob DATE NOT NULL
-);
-
--- creating table for diseases
-CREATE TABLE IF NOT EXISTS diseases (
-    disease_id INT AUTO_INCREMENT PRIMARY KEY,
-    disease_name VARCHAR(255) NOT NULL
-);
-
--- creating table for medical_info
-CREATE TABLE IF NOT EXISTS medical_info (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_id INT NOT NULL,
-    disease_id INT NOT NULL,
-    medical_info TEXT,
-    FOREIGN KEY (patient_id) REFERENCES patients(id),
-    FOREIGN KEY (disease_id) REFERENCES diseases(disease_id)
+    dob DATE NOT NULL,
+    disease VARCHAR(255), -- Store the disease name directly
+    medical_info TEXT
 );
 
 

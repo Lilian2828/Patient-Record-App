@@ -118,7 +118,6 @@ module.exports = function(app, appData) {
         res.render("patient.ejs", appData);
     });
 
-        // Assuming you have already imported the necessary modules and set up your database connection
 
 // Define a route handler for the patient page
 app.get('/patient/:id', function(req, res) {
@@ -141,105 +140,28 @@ app.get('/patient/:id', function(req, res) {
 });
 
  
-app.get('/addpatient', function (req, res) {
+app.get('/addpatient', redirectLogin, function (req, res) {
     res.render('addpatient.ejs', appData);
  });
 
- app.post('/patientadded', (req, res) => {
+
+// Define a route handler to handle POST requests to add a new patient
+app.post('/patientadded', (req, res) => {
     const { name, dob, disease, medical_info } = req.body;
   
     // Insert patient record into the patients table
-    db.query('INSERT INTO patients (name, dob) VALUES (?, ?)', [name, dob], (err, result) => {
+    db.query('INSERT INTO patients (name, dob, disease, medical_info) VALUES (?, ?, ?, ?)', 
+              [name, dob, disease, medical_info], 
+              (err, result) => {
       if (err) {
         console.error('Error inserting patient into patients table:', err);
         return res.status(500).send('Error adding patient. Please try again.');
       }
   
-      // Retrieve the auto-generated patient ID
-      const patientId = result.insertId;
-  
-      // If disease is provided, insert into diseases table
-      if (disease) {
-        db.query('INSERT INTO diseases (disease_name) VALUES (?)', [disease], (err, result) => {
-          if (err) {
-            console.error('Error inserting disease into diseases table:', err);
-            return res.status(500).send('Error adding patient. Please try again.');
-          }
-  
-          // Retrieve the auto-generated disease ID
-          const diseaseId = result.insertId;
-  
-          // Insert medical information into medical_info table
-          db.query('INSERT INTO medical_info (patient_id, disease_id, medical_info) VALUES (?, ?, ?)',
-            [patientId, diseaseId, medical_info],
-            (err, result) => {
-              if (err) {
-                console.error('Error inserting medical info into medical_info table:', err);
-                return res.status(500).send('Error adding patient. Please try again.');
-              }
-  
-              // Redirect to a success page or send a success response
-              res.send('Patient added successfully.');
-            });
-        });
-      } else {
-        // If no disease provided, insert medical information with NULL disease_id
-        db.query('INSERT INTO medical_info (patient_id, medical_info) VALUES (?, ?)',
-          [patientId, medical_info || null], // Use null if medical_info is not provided
-          (err, result) => {
-            if (err) {
-              console.error('Error inserting medical info into medical_info table:', err);
-              return res.status(500).send('Error adding patient. Please try again.');
-            }
-  
-            // Redirect to a success page or send a success response
-            res.send('Patient added successfully.');
-          });
-      }
+      // Redirect to a success page or send a success response
+      res.send('Patient added successfully to the database.');
     });
 });
 
-
-
-// app.get('/delete-patient/:id', function(req, res) {
-//     // Render a form for confirming deletion or perform deletion directly
-//     res.render('delete-patient-form', { patientId: req.params.id });
-// });
-
-// app.post('/delete-patient/:id', function(req, res) {
-//     const patientId = req.params.id;
-//     // Perform deletion logic here
-//     db.query('DELETE FROM patients WHERE id = ?', [patientId], (err, result) => {
-//         if (err) {
-//             // Handle any errors that occur during the deletion process
-//             console.error("Error deleting patient:", err);
-//             return res.status(500).send("Error deleting patient.");
-//         }
-//         // Check if any rows were affected by the deletion query
-//         if (result.affectedRows === 0) {
-//             // If no rows were affected, it means the patient with the given id does not exist
-//             return res.status(404).send("Patient not found.");
-//         }
-//         // If deletion was successful, send a success response
-//         res.send("Patient deleted successfully.");
-//     });
-// });
-
-
-
-
-    // Initialize and display the map
- function initMap() {
-    // Specify the coordinates for the center of the map
-    var myLatLng = { lat: -34.397, lng: 150.644 };
-  
-    // Create a new map object
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8, // Set the initial zoom level
-      center: myLatLng // Set the initial center of the map
-    });
-  
-    // Optionally, add markers, polygons, or other overlays to the map
-   }     
-
+ 
 }
