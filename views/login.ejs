@@ -7,14 +7,46 @@
   <body>
     <h1><%=appName%></h1>
     <div class="navbar">
-      <a href="list">List patients</a>
-      <a href="search">Search for patient</a>
-      <a href="addpatient">Add a new patient</a>
-      <a href="register">Register new user</a>
-      <a href="login" class="active">Login with us</a>
-      <a href="about">About <%=appName%></a>
-      <a href="/logout">Logout</a>
+      <a href="list" title="View the list of patients">List patients</a>
+      <a href="search" title="Search for a patient">Search for patient</a>
+      <a href="addpatient" title="Add a new patient">Add a new patient</a>
+      <a href="register" title="Register as a new user">Register new user</a>
+      <a href="login" title="Login to your account" class="active">Login with us</a>
+      <a href="about" title="Learn more about <%=appName%>">About <%=appName%></a>
+      <a href="/logout" title="Logout from your account">Logout</a>
     </div>
+    
+    <script>
+      // Get all navigation links
+      const navLinks = document.querySelectorAll('.navbar a');
+      
+      // Add event listeners to each link
+      navLinks.forEach(link => {
+        // Show message when hovering over the link
+        link.addEventListener('mouseover', function() {
+          // Get the message from the link's title attribute
+          const message = this.getAttribute('title');
+          // Display the message in a tooltip or other UI element
+          // For example, you can create a tooltip element and append it to the body
+          const tooltip = document.createElement('div');
+          tooltip.classList.add('tooltip');
+          tooltip.textContent = message;
+          // Position the tooltip relative to the link
+          const linkRect = this.getBoundingClientRect();
+          tooltip.style.top = `${linkRect.top + linkRect.height}px`;
+          tooltip.style.left = `${linkRect.left}px`;
+          // Append the tooltip to the body
+          document.body.appendChild(tooltip);
+      
+          // Remove the tooltip when mouse leaves the link
+          link.addEventListener('mouseleave', function() {
+            tooltip.remove();
+          });
+        });
+      });
+      </script>
+
+      <!-- Login form -->
     <h2>Login for <%=appName%></h2>
     <div class="container">
       <h1>User Login</h1>
