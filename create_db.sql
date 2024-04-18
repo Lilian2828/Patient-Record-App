@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS patients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     dob DATE NOT NULL,
-    disease VARCHAR(255), -- Store the disease name directly
+    disease VARCHAR(255), -- Store the disease name 
     medical_info TEXT
 );
 

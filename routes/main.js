@@ -20,7 +20,7 @@ module.exports = function(app, appData) {
     });
     
     app.get('/search-result', function (req, res) {
-        //searching in the database
+        //searching in the database for a specific patient
         let sqlquery = "SELECT * FROM patients WHERE name LIKE '%" + req.query.keyword + "%'"; // query database to get all the patients
         // execute sql query
         db.query(sqlquery, (err, result) => {
@@ -42,6 +42,7 @@ module.exports = function(app, appData) {
         const plainPassword = req.body.password;
 
         bcrypt.hash(plainPassword, saltRounds, function (err, hashedPassword) {
+            // inserting users details in the database
             let sqlquery = "INSERT INTO `users` (username, first_name, last_name, email, hashedPassword) VALUES (?,?,?,?,?)";
             let newUser = [req.body.username, req.body.first_name, req.body.last_name, req.body.email, hashedPassword];
 
@@ -119,7 +120,7 @@ module.exports = function(app, appData) {
     });
 
 
-// Define a route handler for the patient page
+// Define a route handler to display patients info
 app.get('/patient/:id', function(req, res) {
     const patientId = req.params.id;
     // Query the database to fetch the patient data

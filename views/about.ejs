@@ -26,8 +26,7 @@
       link.addEventListener('mouseover', function() {
         // Get the message from the link's title attribute
         const message = this.getAttribute('title');
-        // Display the message in a tooltip or other UI element
-        // For example, you can create a tooltip element and append it to the body
+        // Display the message in a tooltip
         const tooltip = document.createElement('div');
         tooltip.classList.add('tooltip');
         tooltip.textContent = message;
@@ -45,7 +44,7 @@
       });
     });
     </script>
-    
+
     <h2>About <%=appName%></h2>
     <p>Information about app</p>
     <div class="container">

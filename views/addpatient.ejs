@@ -15,16 +15,9 @@
       <a href="about" title="Learn more about">About <%=appName%></a>
       <a href="/logout" title="Logout from your account">Logout</a>
     </div>
-    <!-- <a href="list" title="View the list of patients">List patients</a>
-      <a href="search" title="Search for a patient">Search for patient</a>
-      <a href="addpatient" title="Add a new patient">Add a new patient</a>
-      <a href="register" title="Register as a new user">Register new user</a>
-      <a href="login" title="Login to your account">Login with us</a>
-      <a href="about" title="Learn more about <%=appName%>" class="active">About <%=appName%></a>
-      <a href="/logout" title="Logout from your account">Logout</a>
-    </div> -->
+  
     <script>
-      // Get all navigation links
+      // Get the navigation links
       const navLinks = document.querySelectorAll('.navbar a');
       
       // Add event listeners to each link
@@ -33,8 +26,7 @@
         link.addEventListener('mouseover', function() {
           // Get the message from the link's title attribute
           const message = this.getAttribute('title');
-          // Display the message in a tooltip or other UI element
-          // For example, you can create a tooltip element and append it to the body
+          // Display the message in a tooltip 
           const tooltip = document.createElement('div');
           tooltip.classList.add('tooltip');
           tooltip.textContent = message;
